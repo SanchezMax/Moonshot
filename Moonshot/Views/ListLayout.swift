@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ListLayout: View {
-    let astronauts: [String: Astronaut]
     let missions: [Mission]
     
     var body: some View {
         List(missions) { mission in
-            NavigationLink {
-                MissionView(mission: mission, astronauts: astronauts)
-            } label: {
+            NavigationLink(value: mission) {
                 HStack(spacing: 15) {
                     Image(mission.image)
                         .resizable()
@@ -40,10 +37,9 @@ struct ListLayout: View {
 }
 
 #Preview {
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
     
-    ListLayout(astronauts: astronauts, missions: missions)
+    ListLayout(missions: missions)
         .background(.darkBackground)
         .preferredColorScheme(.dark)
 }

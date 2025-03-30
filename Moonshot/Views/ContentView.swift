@@ -17,12 +17,14 @@ struct ContentView: View {
         NavigationStack {
             Group {
                 if showingGrid {
-                    GridLayout(astronauts: astronauts, missions: missions)
+                    GridLayout(missions: missions)
                 } else {
-                    ListLayout(astronauts: astronauts, missions: missions)
+                    ListLayout(missions: missions)
                 }
             }
             .navigationTitle("Moonshot")
+            .navigationDestination(for: Mission.self) { MissionView(mission: $0, astronauts: astronauts) }
+            .navigationDestination(for: Astronaut.self) { AstronautView(astronaut: $0) }
             .background(.darkBackground)
             .preferredColorScheme(.dark)
             .toolbar {
