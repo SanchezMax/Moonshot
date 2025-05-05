@@ -25,6 +25,7 @@ struct MissionView: View {
                     .containerRelativeFrame(.horizontal) { width, axis in
                         width * 0.6
                     }
+                    .accessibilityLabel("Patch of the mission")
                 
                 Text(mission.formattedLaunchDate)
                     .font(.headline)

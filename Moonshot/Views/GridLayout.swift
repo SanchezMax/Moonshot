@@ -45,6 +45,9 @@ struct GridLayout: View {
                                 .stroke(.lightBackground)
                         )
                     }
+                    .accessibilityElement()
+                    .accessibilityLabel("Mission: \(mission.displayName)")
+                    .accessibilityHint("Launch date: \(mission.formattedLaunchDate)")
                 }
             }
             .padding([.horizontal, .bottom])

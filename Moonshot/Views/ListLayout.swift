@@ -29,6 +29,9 @@ struct ListLayout: View {
                             .foregroundStyle(.white.opacity(0.5))
                     }
                 }
+                .accessibilityElement()
+                .accessibilityLabel("Mission: \(mission.displayName)")
+                .accessibilityHint("Launch date: \(mission.formattedLaunchDate)")
             }
             .listRowBackground(Color.darkBackground)
         }
